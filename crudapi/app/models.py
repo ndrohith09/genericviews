@@ -22,15 +22,15 @@ class Score(models.Model):
 
     def save(self, *args , **kwargs):
         if self.result < 70:
-            account_sid = 'ACf542f60def53fbd79bd0f1afef6d73a4'
-            auth_token = 'df9aba60c93d0284f62b937e9473b3ed'
+            account_sid = 'account_sid'
+            auth_token = 'auth_token'
             client = Client(account_sid , auth_token)
 
             message = client.messages \
                 .create(
-                     body=f'Hi SM Logasubramani!.We saw your certification in LinkedIn and we wish to work with you since your CTF rank is - {self.result} . Please respond us quickly!',
+                     body=f'Hi test message from pytho .The result - {self.result}',
                      from_='+18566198893',
-                     to='+919790778113'
+                     to='+91 '
                  )
             print(message.sid)
         return super().save(*args , **kwargs)
